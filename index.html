@@ -1,290 +1,55 @@
-const SITE_LIVE = false; 
-import React, { useState } from "react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Edward Burchett</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow">
 
-export default function EdwardBurchettCampaignHomepage() {
-  const [submitted, setSubmitted] = useState(false);
-  const [siteLive, setSiteLive] = useState(true);
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b2a5b;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
 
-  const navItems = [
-    { label: "Home", href: "#top" },
-    { label: "About Edward", href: "#about" },
-    { label: "Issues", href: "#issues" },
-    { label: "Get Involved", href: "#join" },
-    { label: "Vote", href: "#vote" },
-  ];
+    .container {
+      padding: 20px;
+    }
 
-  const issues = [
-    "Fair Assessments",
-    "Transparency",
-    "Accountability",
-    "Taxpayer Service",
-    "Efficiency",
-    "Public Trust",
-    "Local Knowledge",
-    "Responsible Leadership",
-  ];
+    h1 {
+      font-size: 56px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
 
-  const joinFormUrl = "https://docs.google.com/forms/d/1CGgtcxgpZs39eCjIULQrvvaWa1LPCSNDTT3pKXrqfZE/viewform";
-  const volunteerUrl = joinFormUrl;
-  const yardSignUrl = joinFormUrl;
-  const donateUrl = joinFormUrl;
+    .subtitle {
+      font-size: 22px;
+      color: #ffd23f;
+      font-weight: 600;
+    }
 
-  function handleJoinSubmit(e) {
-    e.preventDefault();
-    window.open(joinFormUrl, "_blank", "noopener,noreferrer");
-    setSubmitted(true);
-  }
+    .tagline {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #cbd5e1;
+    }
+  </style>
+</head>
 
-  if (!siteLive) {
-    return (
-      <div className="min-h-screen bg-[#0b2a5b] text-white flex items-center justify-center px-6">
-        <div className="text-center">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight">Edward Burchett</h1>
-          <p className="mt-4 text-xl md:text-2xl font-semibold text-[#ffd23f]">Campaign Website Coming Soon</p>
-          <button
-            onClick={() => setSiteLive(true)}
-            className="mt-8 rounded-xl bg-[#ffd23f] px-6 py-3 text-sm font-bold uppercase tracking-[0.12em] text-[#0b2a5b]"
-          >
-            Preview Live Site
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div id="top" className="min-h-screen bg-white text-slate-900">
-      <div className="bg-[#ffd23f] text-[#0b2a5b]">
-        <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-3 text-center text-sm font-bold uppercase tracking-[0.18em]">
-          Support Edward Burchett for Bossier Parish Tax Assessor
-        </div>
-      </div>
-
-      <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <div>
-            <div className="text-lg font-bold tracking-tight text-[#0b2a5b]">Edward Burchett</div>
-            <div className="text-xs font-semibold uppercase tracking-[0.22em] text-[#c89b00]">For Tax Assessor</div>
-          </div>
-
-          <nav className="hidden items-center gap-8 lg:flex">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-700 transition hover:text-[#0b2a5b]"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => setSiteLive(false)}
-              className="hidden rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 md:inline-flex"
-            >
-              Hide Site
-            </button>
-            <a
-              href="#join"
-              className="hidden rounded-xl border border-[#0b2a5b] px-4 py-2 text-sm font-semibold text-[#0b2a5b] md:inline-flex"
-            >
-              Join
-            </a>
-            <a
-              href={donateUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-xl bg-[#0b2a5b] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5"
-            >
-              Support
-            </a>
-          </div>
-        </div>
-      </header>
-
-      <section className="relative overflow-hidden bg-[#0b2a5b] text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,210,63,0.22),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_25%)]" />
-        <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:py-24">
-          <div className="order-2 lg:order-1">
-            <div className="mb-4 inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[#ffd23f]">
-              Edward Burchett for Bossier Parish Tax Assessor
-            </div>
-            <h1 className="mt-4 text-4xl font-bold leading-tight tracking-tight md:text-6xl">
-              Fighting for fairness, accountability, and trust in Bossier Parish.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
-              Lifelong Bossier Parish resident. Proven problem-solver. Committed to making sure the Tax Assessor’s office works the way it should for the people it serves.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="#about"
-                className="inline-flex items-center justify-center rounded-2xl bg-[#ffd23f] px-6 py-3 text-sm font-bold uppercase tracking-[0.12em] text-[#0b2a5b] shadow-lg transition hover:-translate-y-0.5"
-              >
-                Learn More
-              </a>
-              <a
-                href="#join"
-                className="inline-flex items-center justify-center rounded-2xl border border-white/20 px-6 py-3 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:bg-white/10"
-              >
-                Join the Campaign
-              </a>
-            </div>
-          </div>
-
-          <div className="order-1 lg:order-2">
-            <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 shadow-2xl backdrop-blur">
-              <div className="flex h-[320px] w-full items-center justify-center bg-gradient-to-br from-[#173b73] via-[#0b2a5b] to-[#071a39] md:h-[420px]">
-                <div className="text-center px-8">
-                  <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-full border border-white/20 bg-white/10 text-4xl font-bold text-[#ffd23f]">
-                    EB
-                  </div>
-                  <div className="mt-6 text-2xl font-bold">Edward Burchett</div>
-                  <div className="mt-2 text-sm uppercase tracking-[0.2em] text-slate-200">Campaign Preview</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="join" className="bg-white py-16">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="rounded-[2rem] bg-slate-50 p-8 shadow-sm ring-1 ring-slate-200">
-            <div className="text-sm font-bold uppercase tracking-[0.18em] text-[#c89b00]">Get Updates from Team Burchett</div>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#0b2a5b]">Join the campaign.</h2>
-
-            {submitted ? (
-              <div className="mt-6 rounded-2xl border border-green-200 bg-green-50 p-4 text-sm font-medium text-green-800">
-                Thanks for signing up. Your information is being collected through the campaign form.
-              </div>
-            ) : (
-              <form onSubmit={handleJoinSubmit} className="mt-6 grid gap-4">
-                <input name="first" required className="rounded-xl border border-slate-300 px-4 py-3" placeholder="First Name" />
-                <input name="last" required className="rounded-xl border border-slate-300 px-4 py-3" placeholder="Last Name" />
-                <input name="email" type="email" required className="rounded-xl border border-slate-300 px-4 py-3" placeholder="Email Address" />
-                <input name="phone" className="rounded-xl border border-slate-300 px-4 py-3" placeholder="Mobile Number" />
-                <label className="flex items-start gap-3 text-sm leading-6 text-slate-600">
-                  <input type="checkbox" required className="mt-1" />
-                  <span>I agree to receive updates and campaign messages.</span>
-                </label>
-                <button type="submit" className="rounded-xl bg-[#0b2a5b] px-5 py-3 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:-translate-y-0.5">
-                  Join
-                </button>
-              </form>
-            )}
-
-            <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              <a href={volunteerUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-xl border border-[#0b2a5b] px-4 py-3 text-sm font-bold uppercase tracking-[0.12em] text-[#0b2a5b] transition hover:bg-[#0b2a5b] hover:text-white">
-                Volunteer
-              </a>
-              <a href={yardSignUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-xl border border-[#0b2a5b] px-4 py-3 text-sm font-bold uppercase tracking-[0.12em] text-[#0b2a5b] transition hover:bg-[#0b2a5b] hover:text-white">
-                Yard Sign
-              </a>
-              <a href={donateUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-xl bg-[#ffd23f] px-4 py-3 text-sm font-bold uppercase tracking-[0.12em] text-[#0b2a5b] transition hover:-translate-y-0.5">
-                Support
-              </a>
-            </div>
-          </div>
-
-          <div id="donate" className="rounded-[2rem] bg-[#0b2a5b] p-8 text-white shadow-lg">
-            <div className="text-sm font-bold uppercase tracking-[0.18em] text-[#ffd23f]">Join the Campaign</div>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight">Grassroots supporters power this campaign.</h2>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-slate-200">
-              Join the campaign to stay informed, volunteer, and help spread the message of fairness and accountability across Bossier Parish.
-            </p>
-            <div className="mt-8">
-              <a href={joinFormUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-xl bg-[#ffd23f] px-6 py-3 text-sm font-bold uppercase tracking-[0.12em] text-[#0b2a5b] transition hover:-translate-y-0.5">
-                Join the Campaign
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" className="bg-[#f8fafc] py-20">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[1fr_1fr] lg:items-center">
-          <div>
-            <div className="text-sm font-bold uppercase tracking-[0.2em] text-[#c89b00]">About</div>
-            <h2 className="mt-3 text-4xl font-bold tracking-tight text-[#0b2a5b]">About Edward Burchett</h2>
-            <div className="mt-6 space-y-5 text-base leading-8 text-slate-700">
-              <p>
-                Edward Burchett is a lifelong resident of Bossier Parish. He has been around public service most of his life, which helped shape how he approaches leadership—with a focus on integrity, responsibility, and doing things the right way.
-              </p>
-              <p>
-                Edward built his career around accountability, efficiency, and problem-solving. He has spent years working with complex systems where accuracy matters, improving operations, and helping ensure processes function fairly and effectively. He has been trusted with high-level responsibilities throughout his career, including holding a Top Secret security clearance.
-              </p>
-              <p>
-                He believes the Tax Assessor’s office should operate with fairness, transparency, and accountability to the people it serves.
-              </p>
-              <a
-                href="#issues"
-                className="inline-flex items-center justify-center rounded-xl border border-[#0b2a5b] px-5 py-3 text-sm font-bold uppercase tracking-[0.12em] text-[#0b2a5b] transition hover:bg-[#0b2a5b] hover:text-white"
-              >
-                Read More
-              </a>
-            </div>
-          </div>
-
-          <div className="overflow-hidden rounded-[2rem] bg-white shadow-xl ring-1 ring-slate-200">
-            <div className="flex h-[420px] w-full items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-              <div className="text-center px-8">
-                <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-[#0b2a5b] text-3xl font-bold text-[#ffd23f]">
-                  EB
-                </div>
-                <div className="mt-5 text-2xl font-bold text-[#0b2a5b]">Edward Burchett</div>
-                <div className="mt-2 text-sm uppercase tracking-[0.2em] text-slate-500">About Section Image Placeholder</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="issues" className="bg-white py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="text-sm font-bold uppercase tracking-[0.2em] text-[#c89b00]">Priorities</div>
-          <h2 className="mt-3 text-4xl font-bold tracking-tight text-[#0b2a5b]">Edward Burchett on the issues</h2>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {issues.map((issue) => (
-              <button
-                key={issue}
-                className="rounded-[1.5rem] border border-slate-200 bg-white px-5 py-6 text-left text-base font-bold uppercase tracking-[0.08em] text-[#0b2a5b] shadow-sm transition hover:-translate-y-1 hover:border-[#ffd23f] hover:shadow-md"
-              >
-                {issue}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#0b2a5b] py-20 text-white">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <p className="text-3xl font-bold leading-relaxed md:text-4xl">
-            “I’m not running to maintain the system — I’m running to make sure it works the way it’s supposed to.”
-          </p>
-        </div>
-      </section>
-
-      <footer id="vote" className="bg-white py-14">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="flex flex-col items-center justify-between gap-8 border-t border-slate-200 pt-10 text-center md:flex-row md:text-left">
-            <div>
-              <div className="text-2xl font-bold text-[#0b2a5b]">Edward Burchett</div>
-              <div className="mt-1 text-sm font-semibold uppercase tracking-[0.18em] text-[#c89b00]">For Tax Assessor</div>
-            </div>
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-semibold uppercase tracking-[0.12em] text-slate-600">
-              <a href={donateUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#0b2a5b]">Support</a>
-              <a href={joinFormUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#0b2a5b]">Contact</a>
-              <a href="#" className="hover:text-[#0b2a5b]">Facebook</a>
-              <a href="#" className="hover:text-[#0b2a5b]">Instagram</a>
-            </div>
-            <div className="text-sm text-slate-500">
-              Paid for by Edward Burchett for Tax Assessor
-            </div>
-          </div>
-        </div>
-      </footer>
+<body>
+  <div class="container">
+    <h1>Edward Burchett</h1>
+    <div class="subtitle">Campaign Website Coming Soon</div>
+    <div class="tagline">
+      Bossier Parish Tax Assessor
     </div>
-  );
-}
+  </div>
+</body>
+</html>

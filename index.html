@@ -1,46 +1,326 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Edward Burchett</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex, nofollow">
+import React, { useState } from "react";
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b2a5b;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-    }
+export default function EdwardBurchettCampaignHomepage() {
+  const [submitted, setSubmitted] = useState(false);
+  const [siteLive, setSiteLive] = useState(true);
 
-    .container {
-      padding: 20px;
-    }
+  const navItems = [
+    { label: "Home", href: "#top" },
+    { label: "About", href: "#about" },
+    { label: "Priorities", href: "#issues" },
+    { label: "Get Involved", href: "#join" },
+    { label: "Contact", href: "#footer" },
+  ];
 
-    h1 {
-      font-size: 56px;
-      margin-bottom: 10px;
-      font-weight: bold;
-    }
+  const priorities = [
+    "Fair Assessments",
+    "Transparency",
+    "Accountability",
+    "Taxpayer Service",
+    "Efficiency",
+    "Public Trust",
+    "Local Knowledge",
+    "Responsible Leadership",
+  ];
 
-    .subtitle {
-      font-size: 22px;
-      color: #ffd23f;
-      font-weight: 600;
-    }
-  </style>
-</head>
+  const joinFormUrl = "https://docs.google.com/forms/d/1CGgtcxgpZs39eCjIULQrvvaWa1LPCSNDTT3pKXrqfZE/viewform";
 
-<body>
-  <div class="container">
-    <h1>Edward Burchett</h1>
-    <div class="subtitle">Website Coming Soon</div>
-  </div>
-</body>
-</html>
+  function handleJoinSubmit(e) {
+    e.preventDefault();
+    window.open(joinFormUrl, "_blank", "noopener,noreferrer");
+    setSubmitted(true);
+  }
+
+  if (!siteLive) {
+    return (
+      <div className="min-h-screen bg-[#0b2a5b] text-white flex items-center justify-center px-6">
+        <div className="text-center">
+          <div className="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.22em] text-[#ffd23f]">
+            Edward Burchett
+          </div>
+          <h1 className="mt-6 text-5xl md:text-7xl font-bold tracking-tight">Coming Soon</h1>
+          <p className="mt-4 text-lg md:text-xl text-slate-200">
+            A new website is on the way.
+          </p>
+          <button
+            onClick={() => setSiteLive(true)}
+            className="mt-8 rounded-2xl bg-[#ffd23f] px-6 py-3 text-sm font-bold uppercase tracking-[0.12em] text-[#0b2a5b] shadow-lg transition hover:-translate-y-0.5"
+          >
+            Preview Live Site
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div id="top" className="min-h-screen bg-white text-slate-900">
+      <div className="bg-[#ffd23f] text-[#0b2a5b]">
+        <div className="mx-auto flex max-w-7xl items-center justify-center px-6 py-3 text-center text-xs font-bold uppercase tracking-[0.24em] sm:text-sm">
+          Leadership. Accountability. Public Trust.
+        </div>
+      </div>
+
+      <header className="sticky top-0 z-30 border-b border-slate-200/80 bg-white/95 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <a href="#top" className="block">
+            <div className="text-xl font-bold tracking-tight text-[#0b2a5b]">Edward Burchett</div>
+            <div className="text-[11px] font-semibold uppercase tracking-[0.26em] text-[#c89b00]">Campaign Website</div>
+          </a>
+
+          <nav className="hidden items-center gap-8 lg:flex">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-sm font-semibold uppercase tracking-[0.12em] text-slate-700 transition hover:text-[#0b2a5b]"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setSiteLive(false)}
+              className="hidden rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 md:inline-flex"
+            >
+              Coming Soon Mode
+            </button>
+            <a
+              href="#join"
+              className="rounded-xl bg-[#0b2a5b] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5"
+            >
+              Get Involved
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <section className="relative overflow-hidden bg-[#0b2a5b] text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,210,63,0.22),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.08),transparent_25%)]" />
+        <div className="relative mx-auto grid max-w-7xl gap-14 px-6 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:py-24">
+          <div>
+            <div className="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-[#ffd23f]">
+              Edward Burchett
+            </div>
+            <h1 className="mt-6 max-w-4xl text-4xl font-bold leading-tight tracking-tight md:text-6xl">
+              A stronger standard of service, accountability, and trust.
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
+              Lifelong Bossier Parish resident. Proven problem-solver. Committed to making sure public offices operate with fairness, accuracy, and respect for the people they serve.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="#about"
+                className="inline-flex items-center justify-center rounded-2xl bg-[#ffd23f] px-6 py-3 text-sm font-bold uppercase tracking-[0.12em] text-[#0b2a5b] shadow-lg transition hover:-translate-y-0.5"
+              >
+                Learn More
+              </a>
+              <a
+                href="#join"
+                className="inline-flex items-center justify-center rounded-2xl border border-white/20 px-6 py-3 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:bg-white/10"
+              >
+                Join the Campaign
+              </a>
+            </div>
+            <div className="mt-10 grid gap-4 sm:grid-cols-3">
+              {[
+                ["Family Legacy", "Raised with a deep respect for public service and community responsibility."],
+                ["Proven Accomplishments", "Known for solving problems, improving systems, and handling serious responsibility."],
+                ["Focused on Trust", "Committed to fairness, accountability, and service people can rely on."],
+              ].map(([title, text]) => (
+                <div key={title} className="rounded-2xl border border-white/10 bg-white/10 p-4 backdrop-blur">
+                  <div className="text-sm font-bold uppercase tracking-[0.14em] text-[#ffd23f]">{title}</div>
+                  <p className="mt-2 text-sm leading-6 text-slate-200">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 shadow-2xl backdrop-blur">
+              <div className="flex h-[380px] w-full items-center justify-center bg-gradient-to-br from-[#163767] via-[#0b2a5b] to-[#071a39] md:h-[500px]">
+                <div className="px-8 text-center">
+                  <div className="mx-auto flex h-28 w-28 items-center justify-center rounded-full border border-white/20 bg-white/10 text-4xl font-bold text-[#ffd23f] shadow-xl">
+                    EB
+                  </div>
+                  <div className="mt-8 text-3xl font-bold tracking-tight">Edward Burchett</div>
+                  <div className="mt-3 text-sm uppercase tracking-[0.24em] text-slate-200">Campaign Preview</div>
+                  <div className="mx-auto mt-6 h-1 w-16 rounded-full bg-[#ffd23f]" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-8">
+        <div className="mx-auto grid max-w-7xl gap-4 px-6 md:grid-cols-3">
+          {[
+            "Committed to fairness and consistency.",
+            "Dedicated to transparency and accountability.",
+            "Focused on service, efficiency, and public trust.",
+          ].map((line) => (
+            <div key={line} className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-5 text-center text-sm font-semibold tracking-wide text-slate-700 shadow-sm">
+              {line}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="about" className="bg-[#f8fafc] py-20">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[1fr_1fr] lg:items-center">
+          <div>
+            <div className="text-sm font-bold uppercase tracking-[0.2em] text-[#c89b00]">About Edward</div>
+            <h2 className="mt-3 text-4xl font-bold tracking-tight text-[#0b2a5b]">Built on family, public service, and a record of responsibility.</h2>
+            <div className="mt-6 space-y-5 text-base leading-8 text-slate-700">
+              <p>
+                Edward Burchett is a lifelong resident of Bossier Parish whose values were shaped by a strong family tradition of public service. He grew up around people who believed public office should be handled with integrity, responsibility, and respect for the community.
+              </p>
+              <p>
+                That foundation has influenced how he approaches leadership today: steady, accountable, and focused on doing the job the right way. He believes public trust is earned through fairness, professionalism, and consistent service.
+              </p>
+              <p>
+                In his professional career, Edward has built a reputation for solving problems, improving systems, and handling high-level responsibilities where accuracy matters. He has worked in demanding environments, helped strengthen operations, and been entrusted with significant responsibility, including holding a Top Secret security clearance.
+              </p>
+              <p>
+                He wants to bring that same seriousness, discipline, and commitment to service to the work ahead.
+              </p>
+              <a
+                href="#join"
+                className="inline-flex items-center justify-center rounded-xl border border-[#0b2a5b] px-5 py-3 text-sm font-bold uppercase tracking-[0.12em] text-[#0b2a5b] transition hover:bg-[#0b2a5b] hover:text-white"
+              >
+                Get Updates
+              </a>
+            </div>
+          </div>
+
+          <div className="overflow-hidden rounded-[2rem] bg-white shadow-xl ring-1 ring-slate-200">
+            <div className="flex h-[460px] w-full items-center justify-center bg-gradient-to-br from-slate-100 via-white to-slate-200">
+              <div className="px-8 text-center">
+                <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-[#0b2a5b] text-3xl font-bold text-[#ffd23f] shadow-lg">
+                  EB
+                </div>
+                <div className="mt-5 text-2xl font-bold text-[#0b2a5b]">Edward Burchett</div>
+                <div className="mt-2 text-sm uppercase tracking-[0.2em] text-slate-500">Family · Service · Accomplishment</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="issues" className="bg-white py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="text-sm font-bold uppercase tracking-[0.2em] text-[#c89b00]">Priorities</div>
+          <h2 className="mt-3 text-4xl font-bold tracking-tight text-[#0b2a5b]">A campaign centered on good government and public confidence.</h2>
+          <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
+            These priorities reflect a commitment to fairness, responsiveness, and the kind of dependable leadership people should expect from public service.
+          </p>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {priorities.map((item) => (
+              <div
+                key={item}
+                className="rounded-[1.5rem] border border-slate-200 bg-white px-5 py-6 shadow-sm transition hover:-translate-y-1 hover:border-[#ffd23f] hover:shadow-md"
+              >
+                <div className="text-base font-bold uppercase tracking-[0.08em] text-[#0b2a5b]">{item}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#0b2a5b] py-20 text-white">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <p className="text-3xl font-bold leading-relaxed md:text-4xl">
+            “Public trust is earned through fairness, professionalism, and doing the job the right way.”
+          </p>
+        </div>
+      </section>
+
+      <section id="join" className="bg-white py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="rounded-[2rem] bg-slate-50 p-8 shadow-sm ring-1 ring-slate-200">
+            <div className="text-sm font-bold uppercase tracking-[0.18em] text-[#c89b00]">Get Updates</div>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#0b2a5b]">Stay connected with the campaign.</h2>
+            <p className="mt-4 text-base leading-7 text-slate-600">
+              Join for updates, volunteer opportunities, and important campaign announcements.
+            </p>
+
+            {submitted ? (
+              <div className="mt-6 rounded-2xl border border-green-200 bg-green-50 p-4 text-sm font-medium text-green-800">
+                Thanks for signing up. Your information is being collected through the campaign form.
+              </div>
+            ) : (
+              <form onSubmit={handleJoinSubmit} className="mt-6 grid gap-4">
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <input name="first" required className="rounded-xl border border-slate-300 px-4 py-3" placeholder="First Name" />
+                  <input name="last" required className="rounded-xl border border-slate-300 px-4 py-3" placeholder="Last Name" />
+                </div>
+                <input name="email" type="email" required className="rounded-xl border border-slate-300 px-4 py-3" placeholder="Email Address" />
+                <input name="phone" className="rounded-xl border border-slate-300 px-4 py-3" placeholder="Mobile Number" />
+                <label className="flex items-start gap-3 text-sm leading-6 text-slate-600">
+                  <input type="checkbox" required className="mt-1" />
+                  <span>I agree to receive updates and campaign messages.</span>
+                </label>
+                <button type="submit" className="rounded-xl bg-[#0b2a5b] px-5 py-3 text-sm font-bold uppercase tracking-[0.12em] text-white transition hover:-translate-y-0.5">
+                  Join the Campaign
+                </button>
+              </form>
+            )}
+          </div>
+
+          <div className="rounded-[2rem] bg-[#0b2a5b] p-8 text-white shadow-lg">
+            <div className="text-sm font-bold uppercase tracking-[0.18em] text-[#ffd23f]">Get Involved</div>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight">Grassroots support makes the difference.</h2>
+            <p className="mt-4 max-w-2xl text-base leading-8 text-slate-200">
+              Help spread the message, stay informed, and be part of building a campaign centered on fairness, trust, and accountability.
+            </p>
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
+              {[
+                "Volunteer",
+                "Yard Sign",
+                "Support",
+              ].map((label) => (
+                <a
+                  key={label}
+                  href={joinFormUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center justify-center rounded-xl px-4 py-3 text-sm font-bold uppercase tracking-[0.12em] transition ${
+                    label === "Support"
+                      ? "bg-[#ffd23f] text-[#0b2a5b] hover:-translate-y-0.5"
+                      : "border border-white/20 text-white hover:bg-white/10"
+                  }`}
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer id="footer" className="bg-white py-14">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="flex flex-col items-center justify-between gap-8 border-t border-slate-200 pt-10 text-center md:flex-row md:text-left">
+            <div>
+              <div className="text-2xl font-bold text-[#0b2a5b]">Edward Burchett</div>
+              <div className="mt-1 text-sm font-semibold uppercase tracking-[0.18em] text-[#c89b00]">Campaign Website</div>
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-semibold uppercase tracking-[0.12em] text-slate-600">
+              <a href="#about" className="hover:text-[#0b2a5b]">About</a>
+              <a href="#issues" className="hover:text-[#0b2a5b]">Priorities</a>
+              <a href="#join" className="hover:text-[#0b2a5b]">Get Involved</a>
+              <a href={joinFormUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[#0b2a5b]">Contact</a>
+            </div>
+            <div className="text-sm text-slate-500">
+              Paid for by Edward Burchett
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
